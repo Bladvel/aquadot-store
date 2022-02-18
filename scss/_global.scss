@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    /* UTILITIES */
+
+        /* TEXT MODIFICATIONS */
+body{
+    font-family: $body-font;
+    background-color: white;
+    
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
