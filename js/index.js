@@ -108,6 +108,8 @@ let talle = prompt("Introduzca la talla de la camisa que desea comprar: \n-s\n-m
 let impresion_calidad = prompt("Introduzca el tipo de impresion que desea:\n-Direct to garment\n-Screen print");
 let impresion_primaria =prompt("Desea la impresion en:\n-Front\n-Back\n-both");
 let impresion_secundaria =prompt("Desea la impresion en las mangas en:\n-right\n-left\n-both\n-none");
+
 const shirt = new Tshirt(talle,impresion_calidad,impresion_primaria,impresion_secundaria);
 shirt.setPrice();
-alert("El precio del articulo es " +shirt.finalPrice);
+
+alert("El precio del articulo es " + shirt.getPrice());

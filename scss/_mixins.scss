@@ -1,0 +1,33 @@
+
+@mixin background-color-border ($background, $border) {
+    background-color: $background;
+    border-color: $border;
+}
+
+@mixin grid-columns ($start, $end) {
+    grid-column-start: $start;
+    grid-column-end: $end;
+}
+
+@mixin grid-rows ($start,$end){
+    grid-row-start: $start;
+    grid-row-end: $end;
+}
+
+@mixin background-image-size-position ($img,$size,$pos){
+    background-image: url($img);
+    background-size: $size;
+    background-position: $pos;
+}
+
+@mixin flex-dir-justify ($direction,$justify){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    
+}
+
+@mixin size($width,$height) {
+    width: $width;
+    height: $height;
+}

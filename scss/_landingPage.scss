@@ -1,0 +1,19 @@
+/* HEADER */
+
+    /* Landing page body */
+
+.landingBody{
+    @extend .footerContent;
+    height: 80vh;
+    margin-bottom: 10%;
+}
+
+.lightWeight{
+    font-weight: lighter;
+}
+
+.frontText{
+    text-align: center;
+    width: 50%;
+}
+

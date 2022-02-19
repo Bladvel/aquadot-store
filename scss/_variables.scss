@@ -1,4 +1,18 @@
-//Varibles
+// Variables
 
-    //Font 
-$body_font: 'Montserrat', sans-serif;
+    //Fonts related
+
+$title-font: 'Montserrat', sans-serif;
+$body-font: 'Montserrat', sans-serif;
+$title-font-size: 250%;
+$title-font-size-color:#008996;
+$font-color-purple: #331B5C;
+
+    //General colors 
+$aqua-background: #9AD7D8;
+$aqua-background-gradient:  linear-gradient( rgba(154,215,216,1) 0%, rgba(89,178,180,1) 100%);
+
+    //Effects
+
+$shadow: 10px 10px 12px -6px rgba(0,0,0,0.3);
+$main-margin: 10%;

@@ -1,0 +1,25 @@
+    /* FOOTER */
+.footer{
+    @include flex-dir-justify(column,space-evenly);
+    /* top | right | bottom | left */
+    padding: 3vh 3vh 0 3vh;
+}
+
+.footerContent{
+    @include flex-dir-justify(row,space-between);
+    align-items: center;
+
+}
+
+.footerImages{
+    @include flex-dir-justify(row,space-between);
+
+    img{
+        @include size(50px,50px);
+    }
+}
+
+
+.footerRights{
+    text-align: center;
+}

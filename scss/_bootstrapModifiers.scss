@@ -1,0 +1,52 @@
+/*  BOOTSTRAP CUSTOMIZATION */
+
+    /* NAVBAR */
+
+.navbar .navbar-nav{
+    justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-expand-md
+    .navbar-nav{
+        width: 80%;
+    }
+}           
+            /*NAVBAR NAV-PILL */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: $aqua-background;
+}
+
+    /* CAROUSEL */
+.carousel{
+    max-width: 50vw;
+}
+
+    /* FiGURE */
+
+figure{
+    margin: 0;
+}
+
+    /* btn-primary */
+
+.btn-primary{
+    @include background-color-border ($title-font-size-color,$title-font-size-color);
+
+  
+    &:hover{
+        @include background-color-border (cadetblue, cadetblue);
+    }
+
+    &:focus{
+        @include background-color-border (cadetblue, cadetblue);
+        box-shadow: 0 0 0 0.25rem rgba(1,199,199,0.5);
+    }
+
+    &:active{
+        @include background-color-border (cadetblue, cadetblue);
+    }
+
+
+}

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" href="resources/favicon.ico">
+    <link rel="icon" href="images/favicon.ico">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,144 @@
 
 <body>
 
-    <h1>Primera entrega</h1>
+    <!-- HEADER -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerInicio" aria-controls="navbarTogglerInicio" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/aqua-logo.svg " style="height: 10vh;" alt="Logo Aqua Dot">
+                </a>
+                
+                <div class="collapse navbar-collapse" id="navbarTogglerInicio">
+                    <ul class="navbar-nav nav-pills ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- BODY -->
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col">
+                <img src="images/Shirt-template.svg" alt="camisa de muestra">
+            </div>
+
+            <div class="col">
+                
+                <div class="col-12">
+                    <h4>Customize your T-shirt however you want!</h4>
+                </div>
+                <form>
+                    <div class="col-12">
+                        <label for="sizeInput" class="form-label">Choose your size</label>
+                        <select class="form-select" id="sizeInput">
+                            <option value="">--Please choose your shirt size--</option>
+                            <option value="1">S</option>
+                            <option value="2">M</option>
+                            <option value="3">L</option>
+                            <option value="4">XL</option>
+                            <option value="5">2XL</option>
+                            <option value="6">3XL</option>
+                            <option value="7">4XL</option>
+                        </select>
+                    </div>
+    
+                    <div class="col-12">
+                        <label for="qualityInput" class="form-label">Choose the printing type</label>
+                        <select class="form-select" id="qualityInput">
+                            <option value="">--Please choose a printing type</option>
+                            <option value="1">Direct to garment</option>
+                            <option value="2">Screen Printing</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="printing_primaryInput" class="form-label">Choose where you want to place your design</label>
+                        <select class="form-select" id="printing_primaryInput">
+                            <option value="">--Please choose a place</option>
+                            <option value="1">Front</option>
+                            <option value="2">Back</option>
+                            <option value="3">Both</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="printing_secundaryInput" class="form-label">Choose if you want to place it on a sleeve</label>
+                        <select class="form-select" id="printing_secundaryInput">
+                            <option value="">--Please choose a place</option>
+                            <option value="1">Right</option>
+                            <option value="2">Left</option>
+                            <option value="3">Both</option>
+                            <option value="4">None</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+        </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="aquaBackground footer">
+        <div class="footerContent">
+            <section>
+                <p>
+                    Manawa Coworking Creativo <br>
+                    Nicaragua 4817, C1414 CABA
+                </p>
+            </section>
+
+
+            <aside class="footerImages">
+                <a href="https://www.facebook.com/">
+                    <img src="images/facebook.png" alt="facebook logo">
+                </a>
+                <a href="https://www.instagram.com/">
+                    <img src="images/instagram.png" alt="instagram logo">
+                </a>
+                <a href="https://www.linkedin.com/">
+                    <img src="images/linkedin.png" alt="linkedin logo">
+                </a>
+            </aside>
+        </div>
+
+        <div class="footerRights">
+            <p><small> Todos los derechos reservados. 2021</small> </p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
 
 
 
