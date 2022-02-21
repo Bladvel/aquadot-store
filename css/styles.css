@@ -10,16 +10,6 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: white; }
 
-h1, h2, h3, .footer {
-  font-family: "Montserrat", sans-serif;
-  color: #008996; }
-
-.purpleText {
-  color: #331B5C; }
-
-h1, h2 {
-  font-size: 250%; }
-
 a {
   color: black;
   text-decoration: none; }
@@ -35,85 +25,39 @@ a {
 .shadow {
   box-shadow: 10px 10px 12px -6px rgba(0, 0, 0, 0.3); }
 
-.marginBody {
-  margin: 10%; }
 
-/* HEADER */
-/* Landing page body */
-.landingBody {
-  height: 80vh;
-  margin-bottom: 10%; }
+  li{
+    font-size: 16px;
+    font-weight: 500;
+  }
 
-.lightWeight {
-  font-weight: lighter; }
+.heroImg{
+  height: 70vh;
+  object-fit: cover;
+}
 
-.frontText {
-  text-align: center;
-  width: 50%; }
+.heroBanner h1{
+  font-size: 36px;
+  font-weight: 400;
+  color: #000;
+}
 
-/* FOOTER */
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  /* top | right | bottom | left */
-  padding: 3vh 3vh 0 3vh; }
+.fabulous{
+  font-family: 'Ranga', cursive;
+  font-size: 48px;
+}
 
-.footerContent, .landingBody {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center; }
+h2{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
 
-.footerImages {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-  .footerImages img {
-    width: 50px;
-    height: 50px; }
+.light-text{
+  font-weight: 300;
+  font-size: 16px;
+}
 
-.footerRights {
-  text-align: center; }
-
-/* CONTACTO */
-#contactoBody iframe {
-  width: 100%;
-  height: 300px; }
-
-/*  BOOTSTRAP CUSTOMIZATION */
-/* NAVBAR */
-.navbar .navbar-nav {
-  justify-content: space-evenly; }
-
-@media screen and (min-width: 768px) {
-  .navbar-expand-md .navbar-nav {
-    width: 80%; } }
-
-/*NAVBAR NAV-PILL */
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #9AD7D8; }
-
-/* CAROUSEL */
-.carousel {
-  max-width: 50vw; }
-
-/* FiGURE */
-figure {
-  margin: 0; }
-
-/* btn-primary */
-.btn-primary {
-  background-color: #008996;
-  border-color: #008996; }
-  .btn-primary:hover {
-    background-color: cadetblue;
-    border-color: cadetblue; }
-  .btn-primary:focus {
-    background-color: cadetblue;
-    border-color: cadetblue;
-    box-shadow: 0 0 0 0.25rem rgba(1, 199, 199, 0.5); }
-  .btn-primary:active {
-    background-color: cadetblue;
-    border-color: cadetblue; }
+.bg-gray{
+  background-color: #EDEDED;
+}
