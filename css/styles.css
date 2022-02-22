@@ -53,11 +53,37 @@ h2{
   line-height: 29px;
 }
 
+h3{
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .light-text{
   font-weight: 300;
   font-size: 16px;
 }
 
+.regular-text{
+  font-weight: 400;
+  font-size: 16px;
+}
+
 .bg-gray{
   background-color: #EDEDED;
+}
+
+.carouselImgSize{
+  height: 60vh;
+}
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.radioGroup label{
+  display: block;
+}
+
+.active{
+  color: #fff!important;
 }
