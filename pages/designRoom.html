@@ -2,61 +2,64 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" href="../images/favicon.ico">
+    <link rel="icon" href="../images/favicon.ico" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Ranga&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" />
 
     <title>Aquadot-store</title>
 </head>
 
 <body>
-
     <!-- HEADER -->
     <header class="sticky-top">
         <nav class="navbar navbar-expand-sm navbar-light bg-light p-0">
             <div class="container-fluid p-0">
                 <a class="navbar-brand p-3" href="../index.html">
-                    <img src="../images/aqua-logo.svg " style="height: 44px; width: 106px;" alt="Logo Aqua Dot" />
+                    <img src="../images/aqua-logo.svg " style="height: 44px; width: 106px" alt="Logo Aqua Dot" />
                 </a>
-                <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerContacto" aria-controls="navbarTogglerContacto" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
 
-                <div class="collapse navbar-collapse justify-content-end col " id="navbarTogglerContacto">
-                    <ul class="navbar-nav nav-pills align-items-center ">
+                <div>
+                    <a class="nav-item d-sm-none" href="cart.html">
+                        <img src="../images/cart.svg" alt="shopping cart icon" />
+                    </a>
+                    <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerContacto" aria-controls="navbarTogglerContacto"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse justify-content-end col" id="navbarTogglerContacto">
+                    <ul class="navbar-nav nav-pills align-items-center">
                         <li class="nav-item px-3">
                             <a class="nav-link active" aria-current="page" href="designRoom.html">Design room</a>
                         </li>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="contacto.html">Contact</a>
                         </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link px-0" href="cart.html">
-                                <img src="../images/cart.svg" alt="shopping cart icon">
+                        <li class="nav-item px-3 d-none d-sm-block">
+                            <a class="nav-link  " href="cart.html">
+                                <img src="../images/cart.svg" alt="shopping cart icon" />
                             </a>
                         </li>
-
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -75,16 +78,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../images/designRoom/front.jpg" class="d-block carouselImgSize" alt="...">
+                <img src="../images/designRoom/front.jpg" class="d-block carouselImgSize" alt="..." />
             </div>
             <div class="carousel-item">
-                <img src="../images/designRoom/back.jpg" class="d-block  carouselImgSize" alt="...">
+                <img src="../images/designRoom/back.jpg" class="d-block carouselImgSize" alt="..." />
             </div>
             <div class="carousel-item">
-                <img src="../images/designRoom/left.jpg" class="d-block  carouselImgSize" alt="...">
+                <img src="../images/designRoom/left.jpg" class="d-block carouselImgSize" alt="..." />
             </div>
             <div class="carousel-item">
-                <img src="../images/designRoom/right.jpg" class="d-block  carouselImgSize " alt="...">
+                <img src="../images/designRoom/right.jpg" class="d-block carouselImgSize" alt="..." />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselShirts" data-bs-slide="prev">
@@ -98,31 +101,32 @@
     </div>
 
     <form class="mt-5 px-4">
-        <h2 class="text-center pb-3">Choose the details of your shirt and design</h2>
+        <h2 class="text-center pb-3">
+            Choose the details of your shirt and design
+        </h2>
         <!-- Color choosing -->
         <div class="radioGroup pb-3">
             <h3>Color:</h3>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="1" id="whiteChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="1" id="whiteChoiceRadio" />
                 <label class="form-check-label" for="whiteChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/whiteChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/whiteChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">White</span>
                         </div>
-
                     </div>
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="2" id="redChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="2" id="redChoiceRadio" />
                 <label class="form-check-label" for="redChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/redChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/redChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">Red</span>
@@ -132,11 +136,11 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="3" id="blackChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="3" id="blackChoiceRadio" />
                 <label class="form-check-label" for="blackChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/blackChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/blackChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">Black</span>
@@ -146,11 +150,12 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="4" id="mustardChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="4"
+                    id="mustardChoiceRadio" />
                 <label class="form-check-label" for="mustardChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/mustardChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/mustardChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">Mustard</span>
@@ -160,11 +165,11 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="5" id="navyChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="5" id="navyChoiceRadio" />
                 <label class="form-check-label" for="navyChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/navyChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/navyChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">Navy</span>
@@ -174,11 +179,11 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="6" id="grayChoiceRadio">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="6" id="grayChoiceRadio" />
                 <label class="form-check-label" for="grayChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
-                            <img src="../images/designRoom/grayChoice.svg" width="16px" alt="">
+                            <img src="../images/designRoom/grayChoice.svg" width="16px" alt="" />
                         </div>
                         <div class="col">
                             <span class="regular-text">Gray</span>
@@ -188,7 +193,6 @@
             </div>
         </div>
 
-
         <div class="container-fluid px-0 pb-4">
             <h3>Choose your quantity:</h3>
             <div class="row">
@@ -196,56 +200,55 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">S</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="S quantity"
-                            aria-describedby="basic-addon1">
+                            aria-describedby="basic-addon1" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon2">M</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="M quantity"
-                            aria-describedby="basic-addon2">
+                            aria-describedby="basic-addon2" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">L</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="L quantity"
-                            aria-describedby="basic-addon3">
+                            aria-describedby="basic-addon3" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon4">XL</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="XL quantity"
-                            aria-describedby="basic-addon4">
+                            aria-describedby="basic-addon4" />
                     </div>
                 </div>
             </div>
-            <div class="row ">
+            <div class="row">
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">2XL</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="2XL quantity"
-                            aria-describedby="basic-addon5">
+                            aria-describedby="basic-addon5" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon6">3XL</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="3XL quantity"
-                            aria-describedby="basic-addon6">
+                            aria-describedby="basic-addon6" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon7">4XL</span>
                         <input type="number" class="form-control" placeholder="0" aria-label="4XL quantity"
-                            aria-describedby="basic-addon7">
+                            aria-describedby="basic-addon7" />
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- Printing type -->
         <div class="pb-4">
@@ -263,31 +266,31 @@
         <div class="pb-4">
             <h3>Select imprint location(s):</h3>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault1">
+                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault1" />
                 <label class="form-check-label" for="flexCheckDefault1">
                     <span class="regular-text">Left Chest (Badge)</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="2" id="flexCheckDefault2">
+                <input class="form-check-input" type="checkbox" value="2" id="flexCheckDefault2" />
                 <label class="form-check-label" for="flexCheckDefault3">
                     <span class="regular-text">Full Front</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault3">
+                <input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault3" />
                 <label class="form-check-label" for="flexCheckDefault3">
                     <span class="regular-text">Full Back</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="4" id="flexCheckDefault4">
+                <input class="form-check-input" type="checkbox" value="4" id="flexCheckDefault4" />
                 <label class="form-check-label" for="flexCheckDefault4">
                     <span class="regular-text">Right Sleeve</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="5" id="flexCheckDefault5">
+                <input class="form-check-input" type="checkbox" value="5" id="flexCheckDefault5" />
                 <label class="form-check-label" for="flexCheckDefault5">
                     <span class="regular-text">Left Sleeve</span>
                 </label>
@@ -302,7 +305,7 @@
                     <span class="regular-text">Left Chest</span>
                 </label>
                 <div class="col-auto">
-                    <input type="file" class="form-control" id="addLeftChestLogo">
+                    <input type="file" class="form-control" id="addLeftChestLogo" />
                 </div>
             </div>
             <div class="row pb-3">
@@ -310,7 +313,7 @@
                     <span class="regular-text">Full Front</span>
                 </label>
                 <div class="col-auto">
-                    <input type="file" class="form-control" id="addFullFrontLogo">
+                    <input type="file" class="form-control" id="addFullFrontLogo" />
                 </div>
             </div>
             <div class="row pb-3">
@@ -318,7 +321,7 @@
                     <span class="regular-text">Full Back</span>
                 </label>
                 <div class="col-auto">
-                    <input type="file" class="form-control" id="addFullBackLogo">
+                    <input type="file" class="form-control" id="addFullBackLogo" />
                 </div>
             </div>
             <div class="row pb-3">
@@ -326,7 +329,7 @@
                     <span class="regular-text">Right Sleeve</span>
                 </label>
                 <div class="col-auto">
-                    <input type="file" class="form-control" id="addRightSleeveLogo">
+                    <input type="file" class="form-control" id="addRightSleeveLogo" />
                 </div>
             </div>
             <div class="row pb-3">
@@ -334,7 +337,7 @@
                     <span class="regular-text">Left Sleeve</span>
                 </label>
                 <div class="col-auto">
-                    <input type="file" class="form-control" id="addLeftSleeveLogo">
+                    <input type="file" class="form-control" id="addLeftSleeveLogo" />
                 </div>
             </div>
         </div>
@@ -343,42 +346,30 @@
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-
         </div>
-
-
     </form>
-
-
-
-
-
-
-
-
-
 
     <!-- FOOTER -->
     <footer class="container-fluid px-0">
         <div class="row justify-content-center pt-5 p-3">
-            <div class="col-auto ">
+            <div class="col-auto">
                 <h2 class="text-center">Follow us</h2>
             </div>
         </div>
         <div class="row justify-content-center pb-5">
-            <div class="col-auto ">
+            <div class="col-auto">
                 <a href="https://www.instagram.com/">
-                    <img src="../images/Instagram.svg" width="37px" alt="instagram logo">
+                    <img src="../images/Instagram.svg" width="37px" alt="instagram logo" />
                 </a>
             </div>
-            <div class="col-auto ">
+            <div class="col-auto">
                 <a href="https://www.facebook.com/">
-                    <img src="../images/Facebook.svg" width="37px" alt="facebook logo">
+                    <img src="../images/Facebook.svg" width="37px" alt="facebook logo" />
                 </a>
             </div>
-            <div class="col-auto ">
+            <div class="col-auto">
                 <a href="https://www.twitter.com/">
-                    <img src="../images/Twitter.svg" width="37px" alt="twitter logo">
+                    <img src="../images/Twitter.svg" width="37px" alt="twitter logo" />
                 </a>
             </div>
         </div>
@@ -391,37 +382,35 @@
             </div>
             <div class="row justify-content-center p-3">
                 <div class="col-10">
-                    <p class="text-center light-text mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros
-                        dui morbi integer augue. Molestie morbi cursus eleifend pharetra, nibh. Volutpat justo, posuere
-                        neque nulla erat blandit morbi. Phasellus et quam aenean sed elit gravida magna tempor.</p>
+                    <p class="text-center light-text mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros dui
+                        morbi integer augue. Molestie morbi cursus eleifend pharetra,
+                        nibh. Volutpat justo, posuere neque nulla erat blandit morbi.
+                        Phasellus et quam aenean sed elit gravida magna tempor.
+                    </p>
                 </div>
             </div>
             <div class="row justify-content-center pt-5 p-3">
-                <div class="col-auto ">
+                <div class="col-auto">
                     <h2 class="text-center mb-0">Address</h2>
                 </div>
             </div>
             <div class="row justify-content-center p-3">
                 <div class="col-10">
-                    <p class="text-center light-text mb-0">Manawa Coworking Creativo
-                        <br>Nicaragua 4817, C1414 CABA</p>
+                    <p class="text-center light-text mb-0">
+                        Manawa Coworking Creativo <br />Nicaragua 4817, C1414 CABA
+                    </p>
                 </div>
             </div>
             <div class="row justify-content-center pt-5 p-3">
                 <div class="col-10">
-                    <p class="text-center light-text mb-0">© 2022 Aqua Dot Store, LLC. All rights reserved.</p>
+                    <p class="text-center light-text mb-0">
+                        © 2022 Aqua Dot Store, LLC. All rights reserved.
+                    </p>
                 </div>
             </div>
         </div>
-
     </footer>
-
-
-
-
-
-
-
 
     <!-- Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -433,7 +422,6 @@
 
     <!-- My script -->
     <script src="js/index.js"></script>
-
 </body>
 
 </html>

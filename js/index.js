@@ -109,10 +109,13 @@ class Tshirts {
 }
 
 class ShoppingCart{
+
+// Propiedades
     items = [];
     empty = true;
     total = 0;
 
+// Metodos
     setTotal(){
         if(!this.empty){
             this.total = this.items.reduce((adder,element) => {
