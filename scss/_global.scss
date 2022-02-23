@@ -1,4 +1,4 @@
-/* RESOLUCION BASE (DESKTOP FIRST) */
+
 *{
     margin: 0;
     padding: 0;
@@ -10,26 +10,39 @@
 body{
     font-family: $body-font;
     background-color: white;
-    
 }
 
-h1,h2,h3, .footer{
-    font-family: $title-font;
-    color: $title-font-size-color;
+h1{
+    font-size: $h1-size;
+    font-weight: $h1-weight;
 }
 
-.purpleText{
-    color: $font-color-purple;
+h2{
+    font-size: $h2-size;
+    font-weight: $h2-weight;
+    line-height: $h2-height;
 }
 
-h1,h2{
-    font-size: $title-font-size;
+h3{
+    font-size: $h3-size;
+    font-weight: $h3-weight;
 }
 
 a{
     color: black;
     text-decoration: none;
 }
+
+.light-text{
+    font-weight: $light-weight;
+    font-size: $light-size;
+}
+  
+.regular-text{
+    font-weight: $regular-weight;
+    font-size: $regular-size;
+}
+
 
         /* BACKGROUND COLORS */
 
@@ -41,14 +54,6 @@ a{
     background: $aqua-background-gradient;
 }
 
-
-
-        /* EFFECTS */
-
-.shadow{
-    box-shadow: $shadow;
-}
-
-.marginBody{
-    margin: $main-margin;
+.bg-gray{
+    background-color: $gray-background;
 }

@@ -4,15 +4,20 @@
 
 $title-font: 'Montserrat', sans-serif;
 $body-font: 'Montserrat', sans-serif;
-$title-font-size: 250%;
-$title-font-size-color:#008996;
-$font-color-purple: #331B5C;
+$h1-size: 36px;
+$h1-weight: 400;
+$h2-size: 24px;
+$h2-weight: 500;
+$h2-height: 29px;
+$h3-size: 16px;
+$h3-weight: 500;
+$light-size:16px;
+$light-weight: 300;
+$regular-size:16px;
+$regular-weight: 400;
+
 
     //General colors 
 $aqua-background: #9AD7D8;
 $aqua-background-gradient:  linear-gradient( rgba(154,215,216,1) 0%, rgba(89,178,180,1) 100%);
-
-    //Effects
-
-$shadow: 10px 10px 12px -6px rgba(0,0,0,0.3);
-$main-margin: 10%;
+$gray-background: #EDEDED;
