@@ -100,7 +100,7 @@
         </button>
     </div>
 
-    <form class="mt-5 px-4">
+    <form class="mt-5 px-4" method="GET" action="/pages/shoppingCart.html">
         <h2 class="text-center pb-3">
             Choose the details of your shirt and design
         </h2>
@@ -108,7 +108,7 @@
         <div class="radioGroup pb-3">
             <h3>Color:</h3>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="1" id="whiteChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="White" id="whiteChoiceRadio" />
                 <label class="form-check-label" for="whiteChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -122,7 +122,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="2" id="redChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="Red" id="redChoiceRadio" />
                 <label class="form-check-label" for="redChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -136,7 +136,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="3" id="blackChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="Black" id="blackChoiceRadio" />
                 <label class="form-check-label" for="blackChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -150,7 +150,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="4"
+                <input class="form-check-input" type="radio" name="Color" value="Mustard"
                     id="mustardChoiceRadio" />
                 <label class="form-check-label" for="mustardChoiceRadio">
                     <div class="row">
@@ -165,7 +165,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="5" id="navyChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="Navy" id="navyChoiceRadio" />
                 <label class="form-check-label" for="navyChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -179,7 +179,7 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" value="6" id="grayChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="Gray" id="grayChoiceRadio" />
                 <label class="form-check-label" for="grayChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -199,28 +199,28 @@
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">S</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="S quantity"
+                        <input type="number" class="form-control" name="S_qty" value="0" aria-label="S quantity"
                             aria-describedby="basic-addon1" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon2">M</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="M quantity"
+                        <input type="number" class="form-control" name="M_qty" value="0" aria-label="M quantity"
                             aria-describedby="basic-addon2" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon3">L</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="L quantity"
+                        <input type="number" class="form-control" name="L_qty" value="0" aria-label="L quantity"
                             aria-describedby="basic-addon3" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon4">XL</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="XL quantity"
+                        <input type="number" class="form-control" name="XL_qty" value="0" aria-label="XL quantity"
                             aria-describedby="basic-addon4" />
                     </div>
                 </div>
@@ -229,21 +229,21 @@
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon5">2XL</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="2XL quantity"
+                        <input type="number" class="form-control" name="2XL_qty" value="0" aria-label="2XL quantity"
                             aria-describedby="basic-addon5" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon6">3XL</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="3XL quantity"
+                        <input type="number" class="form-control" name="3XL_qty" value="0" aria-label="3XL quantity"
                             aria-describedby="basic-addon6" />
                     </div>
                 </div>
                 <div class="col-6 col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon7">4XL</span>
-                        <input type="number" class="form-control" placeholder="0" aria-label="4XL quantity"
+                        <input type="number" class="form-control" name="4XL_qty" value="0" aria-label="4XL quantity"
                             aria-describedby="basic-addon7" />
                     </div>
                 </div>
@@ -255,10 +255,10 @@
             <label for="printingType" class="form-label">
                 <h3>Select type of print:</h3>
             </label>
-            <select class="form-select" id="printingType">
+            <select class="form-select" name="PrintingType" id="printingType">
                 <option selected disabled value="">Choose...</option>
-                <option value="1">DTG (Direct to Garment)</option>
-                <option value="2">High Quality Digital Print</option>
+                <option value="DTG">DTG (Direct to Garment)</option>
+                <option value="HQDP">High Quality Digital Print</option>
             </select>
         </div>
 
@@ -266,31 +266,31 @@
         <div class="pb-4">
             <h3>Select imprint location(s):</h3>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault1" />
+                <input class="form-check-input" type="checkbox" name="Location" value="LC" id="flexCheckDefault1" />
                 <label class="form-check-label" for="flexCheckDefault1">
                     <span class="regular-text">Left Chest (Badge)</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="2" id="flexCheckDefault2" />
+                <input class="form-check-input" type="checkbox" name="Location" value="FF" id="flexCheckDefault2" />
                 <label class="form-check-label" for="flexCheckDefault3">
                     <span class="regular-text">Full Front</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault3" />
+                <input class="form-check-input" type="checkbox" name="Location" value="FB" id="flexCheckDefault3" />
                 <label class="form-check-label" for="flexCheckDefault3">
                     <span class="regular-text">Full Back</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="4" id="flexCheckDefault4" />
+                <input class="form-check-input" type="checkbox" name="Location" value="RS" id="flexCheckDefault4" />
                 <label class="form-check-label" for="flexCheckDefault4">
                     <span class="regular-text">Right Sleeve</span>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="5" id="flexCheckDefault5" />
+                <input class="form-check-input" type="checkbox" name="Location" value="LS" id="flexCheckDefault5" />
                 <label class="form-check-label" for="flexCheckDefault5">
                     <span class="regular-text">Left Sleeve</span>
                 </label>

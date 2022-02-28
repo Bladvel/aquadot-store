@@ -151,7 +151,7 @@ class ShoppingCart{
     markup del 55%
 */
 
-// main
+//****************************** */ ALGORITMO DEL SIMULADOR USANDO PROMPTS Y ALERTS**********************************************************//
 
 // let opcion = "";
 // let carrito = new ShoppingCart();
