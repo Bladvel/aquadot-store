@@ -5,20 +5,23 @@ class Tshirts {
     size;
     quantity;
     printing_quality;
+    id;
     printing_primary;
     printing_secundary;
     basePrice = 4.5;
     finalPrice;
     sold = false;
+    
 
 
-    constructor(color, talla, cantidad, impresion_calidad, impresion_primaria, impresion_secundaria) {
+    constructor(color, talla, cantidad, impresion_calidad, id, impresion_primaria, impresion_secundaria) {
         this.color = color.toLowerCase();
-        this.size = talla.toLowerCase();
-        this.quantity = cantidad.toLowerCase();
-        this.printing_quality = impresion_calidad.toLowerCase();
-        this.printing_primary = impresion_primaria.toLowerCase();
-        this.printing_secundary = impresion_secundaria.toLowerCase();
+        this.size = talla;
+        this.quantity = cantidad;
+        this.printing_quality = impresion_calidad;
+        this.id = id;
+        this.printing_primary = impresion_primaria;
+        this.printing_secundary = impresion_secundaria;
     }
 
 // Metodos
@@ -27,15 +30,15 @@ class Tshirts {
 
         let sum = 0;
         switch (this.size) {
-            case "s":
-            case "m":
-            case "l":
-            case "xl":
+            case "S":
+            case "M":
+            case "L":
+            case "XL":
                 sum = this.basePrice;
                 break;
-            case "2xl":
-            case "3xl":
-            case "4xl":
+            case "2XL":
+            case "3XL":
+            case "4XL":
                 sum = this.basePrice + 2.5;
                 break;
             default:
@@ -44,10 +47,10 @@ class Tshirts {
         }
 
         switch (this.printing_quality) {
-            case "dtg": //direct to garment
+            case "DTG": //direct to garment
                 sum = sum + 4;
                 break;
-            case "hqdp": //High wuality digital printing
+            case "HQDP": //High wuality digital printing
                 sum = sum + 2;
                 break;
             default:
@@ -56,14 +59,22 @@ class Tshirts {
         }
 
         switch (this.printing_primary) {
-            case "front":
-            case "back":
+            case "Badge":
+            case "Front":
+            case "Back":
                 sum = sum + 0;
                 break;
-            case "both":
-                if (this.printing_quality === "dtg") {
+            case "Both (LC & FB)":
+                if (this.printing_quality === "DTG") {
                     sum = sum + 4;
-                } else if (this.printing_quality === "hqdp") {
+                } else if (this.printing_quality === "HQDP") {
+                    sum = sum + 2;
+                }
+                break;
+            case "Both (FF & FB)":
+                if (this.printing_quality === "DTG") {
+                    sum = sum + 4;
+                } else if (this.printing_quality === "HQDP") {
                     sum = sum + 2;
                 }
                 break;
@@ -73,22 +84,22 @@ class Tshirts {
         }
 
         switch (this.printing_secundary) {
-            case "right":
-            case "left":
-                if (this.printing_quality === "dtg") {
+            case "Right":
+            case "Left":
+                if (this.printing_quality === "DTG") {
                     sum = sum + 4;
-                } else if (this.printing_quality === "hqdp") {
+                } else if (this.printing_quality === "HQDP") {
                     sum = sum + 2;
                 }
                 break;
-            case "both":
-                if (this.printing_quality === "dtg") {
+            case "Both arms":
+                if (this.printing_quality === "DTG") {
                     sum = sum + 4 * 2;
-                } else if (this.printing_quality === "hqdp") {
+                } else if (this.printing_quality === "HQDP") {
                     sum = sum + 2 * 2;
                 }
                 break;
-            case "none":
+            case "None":
                 sum = sum + 0;
                 break;
             default:
@@ -96,7 +107,7 @@ class Tshirts {
                 return false;
         }
 
-        this.finalPrice = this.quantity*sum * 1.55;
+        this.finalPrice = Math.round(this.quantity*sum * 1.55 * 1000)/1000; //redondeo a 3 decimales
     }
 
     getPrice() {

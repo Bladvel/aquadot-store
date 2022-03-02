@@ -1,6 +1,7 @@
 // Accedo a la informacion pasada por la orden del design room
 array = JSON.parse(localStorage.getItem('shirtArray'));
 
+// verifico que la informacion se haya pasado correctamente
 for (const iterator of array) {
     console.log(iterator);
 }
@@ -23,7 +24,7 @@ while (array.length) {
 
     console.log(`El precio de los articulos es ${shirt.getPrice()}`);
 
-    carrito.addItem(shirt); //Carrito esta definida en index.js
+    carrito.addItem(shirt); //'carrito' esta definida en index.js
     carrito.setTotal();
 
     console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
@@ -48,38 +49,43 @@ function appendNode(parent, element) {
 
 function extractShirt(printOrder) {
     let color, talla, cantidad,
-        calidad, impresion_primaria,
+        calidad, id, impresion_primaria,
         impresion_secundaria;
 
     color = printOrder[0];
     talla = printOrder[1];
     cantidad = printOrder[2];
     calidad = printOrder[3];
+    id = printOrder[4];
 
     // Lugar de print principal
-    if ((printOrder.includes('LC') || printOrder.includes('FF')) && !printOrder.includes('FB')) {
-        impresion_primaria = 'front';
+    if(printOrder.includes('LC') && !( printOrder.includes('FF') || printOrder.includes('FB') ) ){
+        impresion_primaria = 'Badge';
+    }else if ( printOrder.includes('FF') && !(printOrder.includes('LC') || printOrder.includes('FB'))) {
+        impresion_primaria = 'Front';
     } else if (printOrder.includes('FB') && !(printOrder.includes('LC') || printOrder.includes('FF'))) {
-        impresion_primaria = 'back';
-    } else if (printOrder.includes('FB') && (printOrder.includes('LC') || printOrder.includes('FF'))) {
-        impresion_primaria = 'both';
+        impresion_primaria = 'Back';
+    } else if (printOrder.includes('FB') && printOrder.includes('LC') && !printOrder.includes('FF')) {
+        impresion_primaria = 'Both (LC & FB)';
+    } else if(printOrder.includes('FF') && printOrder.includes('FB') && !printOrder.includes('LC')){
+        impresion_primaria = 'Both (FF & FB)';
     }
 
     //Lugar de print secundario
 
     if (printOrder.includes('RS') && !(printOrder.includes('LS'))) {
-        impresion_secundaria = 'right';
+        impresion_secundaria = 'Right';
     } else if (printOrder.includes('LS') && !(printOrder.includes('RS'))) {
-        impresion_secundaria = 'left';
+        impresion_secundaria = 'Left';
     } else if (printOrder.includes('RS') && (printOrder.includes('LS'))) {
-        impresion_secundaria = 'both';
+        impresion_secundaria = 'Both arms';
     } else {
-        impresion_secundaria = 'none';
+        impresion_secundaria = 'None';
     }
 
     // Manejo de objetos
     // let carrito = new ShoppingCart();
-    const shirt = new Tshirts(color, talla, cantidad, calidad, impresion_primaria, impresion_secundaria);
+    const shirt = new Tshirts(color, talla, cantidad, calidad, id, impresion_primaria, impresion_secundaria);
     return shirt;
 }
 
@@ -113,7 +119,7 @@ function orderCard() {
                             </div>
                             <div class="row">
                                 <div class="col-auto">
-                                    <span class="regular-text">Full Front</span>
+                                    <span class="regular-text">Prints: ${carrito.items[carrito.items.length-1].printing_primary} & ${carrito.items[carrito.items.length-1].printing_secundary}</span>
                                 </div>
                             </div>
                             <div class="row">

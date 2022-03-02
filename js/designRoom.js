@@ -43,6 +43,9 @@ function dataHandler (element){
     new FormData(form);
 }
 
+function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
 
 form.addEventListener('submit', dataHandler);
 form.addEventListener('formdata', (element) =>{
@@ -50,10 +53,19 @@ form.addEventListener('formdata', (element) =>{
     let data = element.formData;
     let array = [];
 
+    let count = 0; //Variable para introducir correctamente el ID de la orden
+
     // guardo los datos del form dentro de un array
     for (var value of data.values()) {
-        console.log(value);
-        array.push(value); 
+        
+        if(count === 4){
+            let id = generateRandomInteger(1000000);
+            array.push(id);
+            array.push(value);
+        }else{
+            array.push(value);
+        }
+        count++; 
     }
 
     array.push('-'); //Uso el '-' como delimitador de arrays para saber cuando termina
