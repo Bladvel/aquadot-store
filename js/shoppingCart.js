@@ -31,7 +31,19 @@ while (array.length) {
 
     // Creacion de ficha de carrito
     orderCard();
+
+    // Agrego dinamicamente un eventListener al boton remove de cada orderCard
+    let removeId = carrito.items[carrito.items.length-1].id;
+    let removeBtn = document.getElementById(`${removeId}`);
     
+    removeBtn.addEventListener('click', () => {
+        let removeIndex = carrito.items.findIndex( function (element) { return element.id == removeId; });
+        carrito.items.splice( removeIndex,1);
+        eliminateContainer = document.getElementById(`card${removeId}`);
+        eliminateContainer.remove();
+
+        // FALTA QUE SE ELIMINE DE MEMORIA Y NO SOLO DEL DOM ACTUAL
+    });
     /**************************************************************************** */
     array.splice(0, array.indexOf('-') + 1);
 }
@@ -92,7 +104,7 @@ function extractShirt(printOrder) {
 function orderCard() {
     let itemContainer = createNode('div');
     itemContainer.setAttribute('class', 'container-fluid');
-    itemContainer.setAttribute('id', 'card-item1');
+    itemContainer.setAttribute('id', `card${carrito.items[carrito.items.length-1].id}`);
     itemContainer.innerHTML = `
                         <div class="row">
                         <!-- imagen de la orden -->
@@ -153,7 +165,7 @@ function orderCard() {
                         <!-- Remove option -->
                         <div class="row justify-content-end">
                         <div class="col-auto">
-                            <span class="light-text link-color">Remove</span>
+                            <button type="button" class="btn btn-link p-0" id="${carrito.items[carrito.items.length-1].id}">Remove</button>
                         </div>
                         </div>
 
