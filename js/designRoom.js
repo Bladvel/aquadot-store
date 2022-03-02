@@ -56,11 +56,12 @@ form.addEventListener('formdata', (element) =>{
         array.push(value); 
     }
 
-    array.push('-');
+    array.push('-'); //Uso el '-' como delimitador de arrays para saber cuando termina
     
     
     // Guardo datos de manera local
     if(localStorage.getItem('shirtArray')){
+        // Verifico si existe una orden anterior, si existe, concateno la orden nueva a la memoria
         let olderOrder = JSON.parse(localStorage.getItem('shirtArray'));
         let currentOrder = array.concat(olderOrder);
         localStorage.setItem('shirtArray', JSON.stringify(currentOrder));

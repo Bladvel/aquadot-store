@@ -6,6 +6,7 @@ for (const iterator of array) {
 }
 
 
+titleCard();
 
 while (array.length) {
     let printOrder = [];
@@ -22,17 +23,19 @@ while (array.length) {
 
     console.log(`El precio de los articulos es ${shirt.getPrice()}`);
 
-    carrito.addItem(shirt);
+    carrito.addItem(shirt); //Carrito esta definida en index.js
     carrito.setTotal();
 
     console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
 
     // Creacion de ficha de carrito
     orderCard();
-
+    
     /**************************************************************************** */
     array.splice(0, array.indexOf('-') + 1);
 }
+
+cartTotal();
 
 function createNode(node) {
     let element = document.createElement(node);
@@ -126,12 +129,12 @@ function orderCard() {
                         <div class="col py-3 d-flex flex-column justify-content-between">
                             <div class="row justify-content-end">
                                 <div class="col-auto">
-                                    <span class="light-text link-color">Modify</span>
+                                    <span class="regular-text text-decoration-underline">Price:</span>
                                 </div>
                             </div>
                             <div class="row justify-content-end">
                                 <div class="col-auto">
-                                    <span class="regular-text">${carrito.items[carrito.items.length-1].getPrice()}</span>
+                                    <span class="regular-text">$${carrito.items[carrito.items.length-1].getPrice()}</span>
                                 </div>
                             </div>
 
@@ -152,4 +155,61 @@ function orderCard() {
                         <hr class="bg-gray m-0" id="outerLine1" >`;
 
     appendNode(document.body, itemContainer);
+}
+
+function cartTotal() {
+    let itemContainer = createNode('div');
+    itemContainer.setAttribute('class', 'container-fluid position-static bottom-0 end-0 p-3 bg-gray footerCart');
+    itemContainer.innerHTML = ` 
+                            <div class="row pb-3 justify-content-between ">
+                                <div class="col-auto">
+                                    <h2>Total:</h2>
+                                </div>
+                                <div class="col-auto">
+                                    <h2>$${carrito.getTotal()}</h2>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto ">
+                                    <button type="button" class="btn btn-dark">Checkout</button>
+                                </div>
+                            </div>`;
+
+
+    appendNode(document.body, itemContainer);
+}
+
+function titleCard() {
+    
+    let itemContainer = document.querySelector('#titleCard');
+    let count = countBreakerInArray(array);
+    if(count===1){
+        itemContainer.innerHTML = `
+                            <div class="row justify-content-center bg-gray">
+                                <div class="col-auto">
+                                    <span class="light-text">${count} Order</span>
+                                </div>
+                            </div>`
+    }else{
+        itemContainer.innerHTML = `
+                            <div class="row justify-content-center bg-gray">
+                                <div class="col-auto">
+                                    <span class="light-text">${count} Orders</span>
+                                </div>
+                            </div>`
+    }
+    
+
+    
+    appendNode(document.body, itemContainer);
+}
+
+function countBreakerInArray(array) {
+    let newArray = [...array]; //Duplico el array para no destruirlo con splice
+    let count = 0;
+    while (newArray.length) {
+        count++
+        newArray.splice(0, newArray.indexOf('-') + 1);
+    }
+    return count;
 }
