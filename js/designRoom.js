@@ -1,18 +1,30 @@
 let LC_checkbox = document.querySelector('#flexCheckDefault1');
 let FF_checkbox = document.querySelector('#flexCheckDefault2');
 
-// mejorar este algoritmo, no puedo mas. Te lo encargo daniel del futuro
+// Checkeo inicial de carga de pagina
+if (LC_checkbox.checked) {
+    FF_checkbox.setAttribute('disabled', '');
+    FF_checkbox.removeAttribute('checked', '');
+}
+
 LC_checkbox.addEventListener('click', function () {
 
-        if (LC_checkbox.checked) {
-            FF_checkbox.removeAttribute('checked', '');
-            FF_checkbox.setAttribute('disabled', '');
-        } else {
-            LC_checkbox.setAttribute('disabled', '');
-            FF_checkbox.removeAttribute('disabled', '');
-        }
+    if (LC_checkbox.checked) {
+        FF_checkbox.removeAttribute('checked', '');
+        FF_checkbox.setAttribute('disabled', '');
+    } else {
+        FF_checkbox.removeAttribute('disabled', '');
+    }
+});
 
-    });
+FF_checkbox.addEventListener('click', () => {
+    if (FF_checkbox.checked) {
+        LC_checkbox.removeAttribute('checked', '');
+        LC_checkbox.setAttribute('disabled', '');
+    } else {
+        LC_checkbox.removeAttribute('disabled', '');
+    }
+})
 
 
 
