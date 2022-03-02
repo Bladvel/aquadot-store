@@ -44,10 +44,10 @@ class Tshirts {
         }
 
         switch (this.printing_quality) {
-            case "direct to garment":
+            case "DTG": //direct to garment
                 sum = sum + 4;
                 break;
-            case "screen print":
+            case "HQDP": //High wuality digital printing
                 sum = sum + 2;
                 break;
             default:
@@ -83,7 +83,7 @@ class Tshirts {
                 break;
             case "both":
                 if (this.printing_quality === "direct to garment") {
-                    sum = sum + 2 * 4;
+                    sum = sum + 4 * 2;
                 } else if (this.printing_quality === "screen print") {
                     sum = sum + 2 * 2;
                 }

@@ -108,7 +108,7 @@
         <div class="radioGroup pb-3">
             <h3>Color:</h3>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="Color" value="White" id="whiteChoiceRadio" />
+                <input class="form-check-input" type="radio" name="Color" value="White" id="whiteChoiceRadio" checked/>
                 <label class="form-check-label" for="whiteChoiceRadio">
                     <div class="row">
                         <div class="col-auto">
@@ -193,61 +193,28 @@
             </div>
         </div>
 
-        <div class="container-fluid px-0 pb-4">
-            <h3>Choose your quantity:</h3>
-            <div class="row">
-                <div class="col-6 col-sm-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">S</span>
-                        <input type="number" class="form-control" name="S_qty" value="0" aria-label="S quantity"
-                            aria-describedby="basic-addon1" />
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon2">M</span>
-                        <input type="number" class="form-control" name="M_qty" value="0" aria-label="M quantity"
-                            aria-describedby="basic-addon2" />
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon3">L</span>
-                        <input type="number" class="form-control" name="L_qty" value="0" aria-label="L quantity"
-                            aria-describedby="basic-addon3" />
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon4">XL</span>
-                        <input type="number" class="form-control" name="XL_qty" value="0" aria-label="XL quantity"
-                            aria-describedby="basic-addon4" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 col-sm-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon5">2XL</span>
-                        <input type="number" class="form-control" name="2XL_qty" value="0" aria-label="2XL quantity"
-                            aria-describedby="basic-addon5" />
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon6">3XL</span>
-                        <input type="number" class="form-control" name="3XL_qty" value="0" aria-label="3XL quantity"
-                            aria-describedby="basic-addon6" />
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon7">4XL</span>
-                        <input type="number" class="form-control" name="4XL_qty" value="0" aria-label="4XL quantity"
-                            aria-describedby="basic-addon7" />
-                    </div>
-                </div>
-            </div>
+        <!-- Choose Size -->
+
+        <div class="pb-4">
+            <label for="size" class="form-label">
+                <h3>Select type your size:</h3>
+            </label>
+            <select class="form-select" name="Size" id="size" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="2XL">2XL</option>
+                <option value="3XL">3XL</option>
+                <option value="4XL">4XL</option>
+            </select>
+        </div>
+
+        <!-- Choose quantity -->
+        <div class="pb-4">
+            <label for="quantity" class="form-label">Choose your quantity:</label>
+            <input type="number" class="form-control" name="Quantity" placeholder="0" id="quantity" required>
         </div>
 
         <!-- Printing type -->
@@ -255,7 +222,7 @@
             <label for="printingType" class="form-label">
                 <h3>Select type of print:</h3>
             </label>
-            <select class="form-select" name="PrintingType" id="printingType">
+            <select class="form-select" name="PrintingType" id="printingType" required>
                 <option selected disabled value="">Choose...</option>
                 <option value="DTG">DTG (Direct to Garment)</option>
                 <option value="HQDP">High Quality Digital Print</option>
@@ -266,14 +233,14 @@
         <div class="pb-4">
             <h3>Select imprint location(s):</h3>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="Location" value="LC" id="flexCheckDefault1" />
+                <input class="form-check-input" type="checkbox" name="Location" value="LC" id="flexCheckDefault1" checked/>
                 <label class="form-check-label" for="flexCheckDefault1">
                     <span class="regular-text">Left Chest (Badge)</span>
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="Location" value="FF" id="flexCheckDefault2" />
-                <label class="form-check-label" for="flexCheckDefault3">
+                <label class="form-check-label" for="flexCheckDefault2">
                     <span class="regular-text">Full Front</span>
                 </label>
             </div>
@@ -344,7 +311,7 @@
 
         <div class="row justify-content-center">
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="addToCart">Add to Cart</button>
             </div>
         </div>
     </form>
@@ -420,8 +387,9 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
-    <!-- My script -->
-    <script src="js/index.js"></script>
+    <!-- My scripts -->
+    <script src="../js/index.js"></script>
+    <script src="../js/designRoom.js"></script>
 </body>
 
 </html>
