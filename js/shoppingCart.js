@@ -3,54 +3,36 @@ array = JSON.parse(localStorage.getItem('shirtArray'));
 
 for (const iterator of array) {
     console.log(iterator);
-    
 }
 
-// Variables a utilizar para construir los objetos
-let color,talla,cantidad, 
-    calidad, impresion_primaria, 
-    impresion_secundaria;
 
-color = array[0];
-talla = array[1];
-cantidad = array[2];
-calidad = array[3];
 
-// Lugar de print principal
-if((array.includes('LC') || array.includes('FF')) && !array.includes('FB')){
-    impresion_primaria = 'front';
-}else if (array.includes('FB') && !(array.includes('LC') || array.includes('FF'))){
-    impresion_primaria = 'back';
-} else if(array.includes('FB') && (array.includes('LC') || array.includes('FF'))){
-    impresion_primaria = 'both';
+while (array.length) {
+    let printOrder = [];
+    for (let i = 0; i < array.indexOf('-'); i++) {
+        printOrder.push(array[i]);
+        console.log(printOrder[i]);
+    }
+
+    // AQUI DIBUJO LA FICHA
+    /**************************************************************************** */
+    // Creacion del objeto Shirt
+    const shirt = extractShirt(printOrder);
+    shirt.setPrice();
+
+    console.log(`El precio de los articulos es ${shirt.getPrice()}`);
+
+    carrito.addItem(shirt);
+    carrito.setTotal();
+
+    console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
+
+    // Creacion de ficha de carrito
+    orderCard();
+
+    /**************************************************************************** */
+    array.splice(0, array.indexOf('-') + 1);
 }
-
-//Lugar de print secundario
-
-if(array.includes('RS') && !(array.includes('LS'))){
-    impresion_secundaria = 'right';
-}else if(array.includes('LS') && !(array.includes('RS'))){
-    impresion_secundaria = 'left';
-}else if(array.includes('RS') && (array.includes('LS'))){
-    impresion_secundaria = 'both';
-}else{
-    impresion_secundaria = 'none';
-}
-
-// Manejo de objetos
-// let carrito = new ShoppingCart();
-const shirt = new Tshirts(color,talla,cantidad,calidad,impresion_primaria,impresion_secundaria);
-
-shirt.setPrice();
-
-console.log(`El precio de los articulos es ${shirt.getPrice()}`);
-
-carrito.addItem(shirt);
-carrito.setTotal();
-
-console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
-
-// Creacion de ficha de carrito
 
 function createNode(node) {
     let element = document.createElement(node);
@@ -61,10 +43,48 @@ function appendNode(parent, element) {
     parent.appendChild(element);
 }
 
-itemContainer = createNode('div');
-itemContainer.setAttribute('class','container-fluid');
-itemContainer.setAttribute('id','card-item1');
-itemContainer.innerHTML = `
+function extractShirt(printOrder) {
+    let color, talla, cantidad,
+        calidad, impresion_primaria,
+        impresion_secundaria;
+
+    color = printOrder[0];
+    talla = printOrder[1];
+    cantidad = printOrder[2];
+    calidad = printOrder[3];
+
+    // Lugar de print principal
+    if ((printOrder.includes('LC') || printOrder.includes('FF')) && !printOrder.includes('FB')) {
+        impresion_primaria = 'front';
+    } else if (printOrder.includes('FB') && !(printOrder.includes('LC') || printOrder.includes('FF'))) {
+        impresion_primaria = 'back';
+    } else if (printOrder.includes('FB') && (printOrder.includes('LC') || printOrder.includes('FF'))) {
+        impresion_primaria = 'both';
+    }
+
+    //Lugar de print secundario
+
+    if (printOrder.includes('RS') && !(printOrder.includes('LS'))) {
+        impresion_secundaria = 'right';
+    } else if (printOrder.includes('LS') && !(printOrder.includes('RS'))) {
+        impresion_secundaria = 'left';
+    } else if (printOrder.includes('RS') && (printOrder.includes('LS'))) {
+        impresion_secundaria = 'both';
+    } else {
+        impresion_secundaria = 'none';
+    }
+
+    // Manejo de objetos
+    // let carrito = new ShoppingCart();
+    const shirt = new Tshirts(color, talla, cantidad, calidad, impresion_primaria, impresion_secundaria);
+    return shirt;
+}
+
+function orderCard() {
+    let itemContainer = createNode('div');
+    itemContainer.setAttribute('class', 'container-fluid');
+    itemContainer.setAttribute('id', 'card-item1');
+    itemContainer.innerHTML = `
                         <div class="row">
                         <!-- imagen de la orden -->
 
@@ -131,4 +151,5 @@ itemContainer.innerHTML = `
                         <!-- Horizontal line 2 -->
                         <hr class="bg-gray m-0" id="outerLine1" >`;
 
-appendNode(document.body,itemContainer);
+    appendNode(document.body, itemContainer);
+}
