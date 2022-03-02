@@ -44,10 +44,10 @@ class Tshirts {
         }
 
         switch (this.printing_quality) {
-            case "DTG": //direct to garment
+            case "dtg": //direct to garment
                 sum = sum + 4;
                 break;
-            case "HQDP": //High wuality digital printing
+            case "hqdp": //High wuality digital printing
                 sum = sum + 2;
                 break;
             default:
@@ -61,9 +61,9 @@ class Tshirts {
                 sum = sum + 0;
                 break;
             case "both":
-                if (this.printing_quality === "direct to garment") {
+                if (this.printing_quality === "dtg") {
                     sum = sum + 4;
-                } else if (this.printing_quality === "screen print") {
+                } else if (this.printing_quality === "hqdp") {
                     sum = sum + 2;
                 }
                 break;
@@ -75,16 +75,16 @@ class Tshirts {
         switch (this.printing_secundary) {
             case "right":
             case "left":
-                if (this.printing_quality === "direct to garment") {
+                if (this.printing_quality === "dtg") {
                     sum = sum + 4;
-                } else if (this.printing_quality === "screen print") {
+                } else if (this.printing_quality === "hqdp") {
                     sum = sum + 2;
                 }
                 break;
             case "both":
-                if (this.printing_quality === "direct to garment") {
+                if (this.printing_quality === "dtg") {
                     sum = sum + 4 * 2;
-                } else if (this.printing_quality === "screen print") {
+                } else if (this.printing_quality === "hqdp") {
                     sum = sum + 2 * 2;
                 }
                 break;
@@ -137,6 +137,9 @@ class ShoppingCart{
     }
 
 }
+
+let carrito = new ShoppingCart();
+
 /*  Precio Base $4.5
     Colores no agregan nada
     Talle

@@ -7,6 +7,7 @@ if (LC_checkbox.checked) {
     FF_checkbox.removeAttribute('checked', '');
 }
 
+// Condicional de los checkbox del imprint location
 LC_checkbox.addEventListener('click', function () {
 
     if (LC_checkbox.checked) {
@@ -54,8 +55,14 @@ form.addEventListener('formdata', (element) =>{
         console.log(value);
         array.push(value); 
     }
+
+    array.push('-');
+    let currentOrder = JSON.stringify(array);
     
     // Guardo datos de manera local
+    if(localStorage.getItem('shirtArray')){
+        
+    }
     localStorage.setItem('shirtArray', JSON.stringify(array));
 
     goToHref("/pages/shoppingCart.html");
