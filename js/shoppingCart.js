@@ -39,8 +39,8 @@ if (array.lastIndexOf('-') === (array.length - 1)) {
 
         removeBtn.addEventListener('click', () => {
             // Elimino el elemento del DOM
-            let removeIndex = carrito.items.findIndex(function (element) {
-                return element.id == removeId;
+            let removeIndex = carrito.items.findIndex(function ({id}) { //Desestructuracion
+                return id == removeId;
             });
             carrito.items.splice(removeIndex, 1);
             eliminateContainer = document.getElementById(`card${removeId}`);

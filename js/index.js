@@ -48,10 +48,10 @@ class Tshirts {
 
         switch (this.printing_quality) {
             case "DTG": //direct to garment
-                sum = sum + 4;
+                sum += 4;
                 break;
             case "HQDP": //High wuality digital printing
-                sum = sum + 2;
+                sum += 2;
                 break;
             default:
                 alert("No se introdujo un estilo de impresion valido");
@@ -66,16 +66,16 @@ class Tshirts {
                 break;
             case "Both (LC & FB)":
                 if (this.printing_quality === "DTG") {
-                    sum = sum + 4;
+                    sum += 4;
                 } else if (this.printing_quality === "HQDP") {
-                    sum = sum + 2;
+                    sum += 2;
                 }
                 break;
             case "Both (FF & FB)":
                 if (this.printing_quality === "DTG") {
-                    sum = sum + 4;
+                    sum += 4;
                 } else if (this.printing_quality === "HQDP") {
-                    sum = sum + 2;
+                    sum += 2;
                 }
                 break;
             default:
@@ -87,16 +87,16 @@ class Tshirts {
             case "Right":
             case "Left":
                 if (this.printing_quality === "DTG") {
-                    sum = sum + 4;
+                    sum += 4;
                 } else if (this.printing_quality === "HQDP") {
-                    sum = sum + 2;
+                    sum += 2;
                 }
                 break;
             case "Both arms":
                 if (this.printing_quality === "DTG") {
-                    sum = sum + 4 * 2;
+                    sum += 4 * 2;
                 } else if (this.printing_quality === "HQDP") {
-                    sum = sum + 2 * 2;
+                    sum += 2 * 2;
                 }
                 break;
             case "None":
@@ -129,9 +129,10 @@ class ShoppingCart{
 // Metodos
     setTotal(){
         if(!this.empty){
-            this.total = this.items.reduce((adder,element) => {
+            let sum = this.items.reduce((adder,element) => {
                 return adder + element.getPrice();
             },0);
+            this.total = Math.round(sum*1000)/1000;
         }else{
             console.log("The cart is empty");
         }
