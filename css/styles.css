@@ -78,3 +78,7 @@ a {
 
 .footerCart {
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25); }
+
+.emptyCart {
+  margin-top: 20vh;
+  margin-bottom: 20vh; }

@@ -6,50 +6,83 @@ for (const iterator of array) {
     console.log(iterator);
 }
 
+if (array.lastIndexOf('-') === (array.length - 1)) {
 
-titleCard();
+    titleCard();
 
-while (array.length) {
-    let printOrder = [];
-    for (let i = 0; i < array.indexOf('-'); i++) {
-        printOrder.push(array[i]);
-        console.log(printOrder[i]);
+
+    while (array.length) {
+        let printOrder = [];
+        for (let i = 0; i < array.indexOf('-'); i++) {
+            printOrder.push(array[i]);
+        }
+
+        // AQUI DIBUJO LA FICHA
+        /**************************************************************************** */
+        // Creacion del objeto Shirt
+        const shirt = extractShirt(printOrder);
+        shirt.setPrice();
+
+        console.log(`El precio de los articulos es ${shirt.getPrice()}`);
+
+        carrito.addItem(shirt); //'carrito' esta definida en index.js
+        carrito.setTotal();
+
+        console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
+
+        // Creacion de ficha de carrito
+        orderCard();
+
+        // Agrego dinamicamente un eventListener al boton remove de cada orderCard
+        let removeId = carrito.items[carrito.items.length - 1].id;
+        let removeBtn = document.getElementById(`${removeId}`);
+
+        removeBtn.addEventListener('click', () => {
+            // Elimino el elemento del DOM
+            let removeIndex = carrito.items.findIndex(function (element) {
+                return element.id == removeId;
+            });
+            carrito.items.splice(removeIndex, 1);
+            eliminateContainer = document.getElementById(`card${removeId}`);
+            eliminateContainer.remove();
+
+            //Elimino el elemento de memoria
+            let eraseArray = JSON.parse(localStorage.getItem('shirtArray'));
+            let startingPoint = eraseArray.indexOf(removeId) - 4;
+            let endPoint = eraseArray.indexOf('-', eraseArray.indexOf(removeId));
+            eraseArray.splice(startingPoint, endPoint + 1);
+            localStorage.setItem('shirtArray', JSON.stringify(eraseArray));
+
+            // Recargo la pagina
+            location.reload();
+
+        });
+        /**************************************************************************** */
+        array.splice(0, array.indexOf('-') + 1);
     }
 
-    // AQUI DIBUJO LA FICHA
-    /**************************************************************************** */
-    // Creacion del objeto Shirt
-    const shirt = extractShirt(printOrder);
-    shirt.setPrice();
+    // Verifico si el carrito esta vacio
+    if (carrito.empty) {
+        let emptyCart = createNode('div');
+        emptyCart.setAttribute('class', 'container-fluid');
+        emptyCart.innerHTML = `
+                            <div class="row justify-content-center" >
+                                <div class="col-auto d-flex flex-column emptyCart align-items-center" >
+                                    <img src="../images/shoppingCart/emptyCart.svg" width="100px" alt="empty cart icon">
+                                    <span class="h5 p-3">Your cart is empty.</span>
+                                </div>
+                            </div>`;
+        appendNode(document.body, emptyCart);
+    }
 
-    console.log(`El precio de los articulos es ${shirt.getPrice()}`);
+    // Muestro el total del carrito
+    cartTotal();
 
-    carrito.addItem(shirt); //'carrito' esta definida en index.js
-    carrito.setTotal();
-
-    console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
-
-    // Creacion de ficha de carrito
-    orderCard();
-
-    // Agrego dinamicamente un eventListener al boton remove de cada orderCard
-    let removeId = carrito.items[carrito.items.length-1].id;
-    let removeBtn = document.getElementById(`${removeId}`);
-    
-    removeBtn.addEventListener('click', () => {
-        let removeIndex = carrito.items.findIndex( function (element) { return element.id == removeId; });
-        carrito.items.splice( removeIndex,1);
-        eliminateContainer = document.getElementById(`card${removeId}`);
-        eliminateContainer.remove();
-
-        // FALTA QUE SE ELIMINE DE MEMORIA Y NO SOLO DEL DOM ACTUAL
-    });
-    /**************************************************************************** */
-    array.splice(0, array.indexOf('-') + 1);
+} else {
+    console.log('Hay un error en memoria');
 }
 
-cartTotal();
-
+/*************************FUNCIONES**************************************/
 function createNode(node) {
     let element = document.createElement(node);
     return element;
@@ -71,15 +104,15 @@ function extractShirt(printOrder) {
     id = printOrder[4];
 
     // Lugar de print principal
-    if(printOrder.includes('LC') && !( printOrder.includes('FF') || printOrder.includes('FB') ) ){
+    if (printOrder.includes('LC') && !(printOrder.includes('FF') || printOrder.includes('FB'))) {
         impresion_primaria = 'Badge';
-    }else if ( printOrder.includes('FF') && !(printOrder.includes('LC') || printOrder.includes('FB'))) {
+    } else if (printOrder.includes('FF') && !(printOrder.includes('LC') || printOrder.includes('FB'))) {
         impresion_primaria = 'Front';
     } else if (printOrder.includes('FB') && !(printOrder.includes('LC') || printOrder.includes('FF'))) {
         impresion_primaria = 'Back';
     } else if (printOrder.includes('FB') && printOrder.includes('LC') && !printOrder.includes('FF')) {
         impresion_primaria = 'Both (LC & FB)';
-    } else if(printOrder.includes('FF') && printOrder.includes('FB') && !printOrder.includes('LC')){
+    } else if (printOrder.includes('FF') && printOrder.includes('FB') && !printOrder.includes('LC')) {
         impresion_primaria = 'Both (FF & FB)';
     }
 
@@ -198,17 +231,17 @@ function cartTotal() {
 }
 
 function titleCard() {
-    
+
     let itemContainer = document.querySelector('#titleCard');
     let count = countBreakerInArray(array);
-    if(count===1){
+    if (count === 1) {
         itemContainer.innerHTML = `
                             <div class="row justify-content-center bg-gray">
                                 <div class="col-auto">
                                     <span class="light-text">${count} Order</span>
                                 </div>
                             </div>`
-    }else{
+    } else {
         itemContainer.innerHTML = `
                             <div class="row justify-content-center bg-gray">
                                 <div class="col-auto">
@@ -216,9 +249,9 @@ function titleCard() {
                                 </div>
                             </div>`
     }
-    
 
-    
+
+
     appendNode(document.body, itemContainer);
 }
 
