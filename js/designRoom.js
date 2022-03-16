@@ -30,7 +30,7 @@ FF_checkbox.addEventListener('click', () => {
 
 
 // ENVIO DE DATOS DE LA ORDEN PARA EL CARRITO
-const form = document.querySelector('form');
+const form = document.querySelector('#form');
 
 function goToHref (dir){
     window.location.href = dir;
@@ -85,3 +85,4 @@ form.addEventListener('formdata', (element) =>{
 
 
 });
+

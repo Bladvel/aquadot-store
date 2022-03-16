@@ -93,15 +93,9 @@ function appendNode(parent, element) {
 }
 
 function extractShirt(printOrder) {
-    let color, talla, cantidad,
-        calidad, id, impresion_primaria,
-        impresion_secundaria;
-
-    color = printOrder[0];
-    talla = printOrder[1];
-    cantidad = printOrder[2];
-    calidad = printOrder[3];
-    id = printOrder[4];
+    let  impresion_primaria, impresion_secundaria;
+    const [color, talla, cantidad, calidad, id] = printOrder;
+   
 
     // Lugar de print principal
     if (printOrder.includes('LC') && !(printOrder.includes('FF') || printOrder.includes('FB'))) {

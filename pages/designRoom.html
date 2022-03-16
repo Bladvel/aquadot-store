@@ -22,6 +22,10 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="../css/styles.css" />
 
+    <!-- Parsley library -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/parsley.js"></script>
+
     <title>Aquadot-store</title>
 </head>
 
@@ -100,7 +104,8 @@
         </button>
     </div>
 
-    <form class="mt-5 px-4" method="GET" action="/pages/shoppingCart.html">
+    <!-- FORM -->
+    <form class="mt-5 px-4" id="form" method="GET" action="/pages/shoppingCart.html">
         <h2 class="text-center pb-3">
             Choose the details of your shirt and design
         </h2>
@@ -108,6 +113,7 @@
         <div class="radioGroup pb-3">
             <h3>Color:</h3>
             <div class="form-check">
+                
                 <input class="form-check-input" type="radio" name="Color" value="White" id="whiteChoiceRadio" checked/>
                 <label class="form-check-label" for="whiteChoiceRadio">
                     <div class="row">
@@ -119,9 +125,7 @@
                         </div>
                     </div>
                 </label>
-            </div>
-
-            <div class="form-check">
+            
                 <input class="form-check-input" type="radio" name="Color" value="Red" id="redChoiceRadio" />
                 <label class="form-check-label" for="redChoiceRadio">
                     <div class="row">
@@ -133,9 +137,7 @@
                         </div>
                     </div>
                 </label>
-            </div>
 
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="Color" value="Black" id="blackChoiceRadio" />
                 <label class="form-check-label" for="blackChoiceRadio">
                     <div class="row">
@@ -147,9 +149,7 @@
                         </div>
                     </div>
                 </label>
-            </div>
 
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="Color" value="Mustard"
                     id="mustardChoiceRadio" />
                 <label class="form-check-label" for="mustardChoiceRadio">
@@ -162,9 +162,7 @@
                         </div>
                     </div>
                 </label>
-            </div>
 
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="Color" value="Navy" id="navyChoiceRadio" />
                 <label class="form-check-label" for="navyChoiceRadio">
                     <div class="row">
@@ -176,9 +174,7 @@
                         </div>
                     </div>
                 </label>
-            </div>
 
-            <div class="form-check">
                 <input class="form-check-input" type="radio" name="Color" value="Gray" id="grayChoiceRadio" />
                 <label class="form-check-label" for="grayChoiceRadio">
                     <div class="row">
@@ -190,8 +186,83 @@
                         </div>
                     </div>
                 </label>
+            
             </div>
         </div>
+
+
+<!-- 
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Color" value="Red" id="redChoiceRadio" />
+                <label class="form-check-label" for="redChoiceRadio">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../images/designRoom/redChoice.svg" width="16px" alt="" />
+                        </div>
+                        <div class="col">
+                            <span class="regular-text">Red</span>
+                        </div>
+                    </div>
+                </label>
+            </div> -->
+
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" name="Color" value="Black" id="blackChoiceRadio" />
+                <label class="form-check-label" for="blackChoiceRadio">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../images/designRoom/blackChoice.svg" width="16px" alt="" />
+                        </div>
+                        <div class="col">
+                            <span class="regular-text">Black</span>
+                        </div>
+                    </div>
+                </label>
+            </div> -->
+
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" name="Color" value="Mustard"
+                    id="mustardChoiceRadio" />
+                <label class="form-check-label" for="mustardChoiceRadio">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../images/designRoom/mustardChoice.svg" width="16px" alt="" />
+                        </div>
+                        <div class="col">
+                            <span class="regular-text">Mustard</span>
+                        </div>
+                    </div>
+                </label>
+            </div> -->
+
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" name="Color" value="Navy" id="navyChoiceRadio" />
+                <label class="form-check-label" for="navyChoiceRadio">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../images/designRoom/navyChoice.svg" width="16px" alt="" />
+                        </div>
+                        <div class="col">
+                            <span class="regular-text">Navy</span>
+                        </div>
+                    </div>
+                </label>
+            </div> -->
+
+            <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" name="Color" value="Gray" id="grayChoiceRadio" />
+                <label class="form-check-label" for="grayChoiceRadio">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../images/designRoom/grayChoice.svg" width="16px" alt="" />
+                        </div>
+                        <div class="col">
+                            <span class="regular-text">Gray</span>
+                        </div>
+                    </div>
+                </label>
+            </div> -->
+        
 
         <!-- Choose Size -->
 
@@ -214,7 +285,7 @@
         <!-- Choose quantity -->
         <div class="pb-4">
             <label for="quantity" class="form-label">Choose your quantity:</label>
-            <input type="number" class="form-control" name="Quantity" placeholder="0" id="quantity" min="1" max="200" required>
+            <input type="number" class="form-control" name="Quantity" placeholder="0" id="quantity" min="1" max="200" required="">
         </div>
 
         <!-- Printing type -->
@@ -222,7 +293,7 @@
             <label for="printingType" class="form-label">
                 <h3>Select type of print:</h3>
             </label>
-            <select class="form-select" name="PrintingType" id="printingType" required>
+            <select class="form-select" name="PrintingType" id="printingType" required="">
                 <option selected disabled value="">Choose...</option>
                 <option value="DTG">DTG (Direct to Garment)</option>
                 <option value="HQDP">High Quality Digital Print</option>
@@ -258,7 +329,7 @@
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="Location" value="LS" id="flexCheckDefault5" />
+                <input class="form-check-input" type="checkbox" name="Location" value="LS" id="flexCheckDefault5" required />
                 <label class="form-check-label" for="flexCheckDefault5">
                     <span class="regular-text">Left Sleeve</span>
                 </label>
@@ -388,8 +459,13 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
 
+    
+
     <!-- My scripts -->
     <script src="../js/index.js"></script>
+    <script>
+        $('#form').parsley();
+    </script>
     <script src="../js/designRoom.js"></script>
 </body>
 
