@@ -13,6 +13,9 @@ hr:not([size]) {
   padding: 0;
   box-sizing: border-box; }
 
+.marginBody {
+  margin: 10%; }
+
 /* UTILITIES */
 /* TEXT MODIFICATIONS */
 body {
