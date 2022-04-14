@@ -14,14 +14,14 @@ class Tshirts {
     
 
 
-    constructor(color, talla, cantidad, impresion_calidad, id, impresion_primaria, impresion_secundaria) {
-        this.color = color.toLowerCase();
-        this.size = talla;
-        this.quantity = cantidad;
-        this.printing_quality = impresion_calidad;
-        this.id = id;
-        this.printing_primary = impresion_primaria;
-        this.printing_secundary = impresion_secundaria;
+    constructor(_color, _size, _quantity, _quality, _id, _primary_print, _secundary_print) {
+        this.color = _color.toLowerCase();
+        this.size = _size;
+        this.quantity = _quantity;
+        this.printing_quality = _quality;
+        this.id = _id;
+        this.printing_primary = _primary_print;
+        this.printing_secundary = _secundary_print;
     }
 
 // Metodos
@@ -150,7 +150,7 @@ class ShoppingCart{
 
 }
 
-let carrito = new ShoppingCart();
+let cart = new ShoppingCart();
 
 /*  Precio Base $4.5
     Colores no agregan nada

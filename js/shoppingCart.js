@@ -6,81 +6,9 @@ for (const iterator of array) {
     console.log(iterator);
 }
 
-if (array.lastIndexOf('-') === (array.length - 1)) {
+//Funcionalidad principal del carrito 
+showCart(array);
 
-    titleCard();
-
-
-    while (array.length) {
-        let printOrder = [];
-        for (let i = 0; i < array.indexOf('-'); i++) {
-            printOrder.push(array[i]);
-        }
-
-        // AQUI DIBUJO LA FICHA
-        /**************************************************************************** */
-        // Creacion del objeto Shirt
-        const shirt = extractShirt(printOrder);
-        shirt.setPrice();
-
-        console.log(`El precio de los articulos es ${shirt.getPrice()}`);
-
-        carrito.addItem(shirt); //'carrito' esta definida en index.js
-        carrito.setTotal();
-
-        console.log(`El valor actual del carrito es ${carrito.getTotal()}`);
-
-        // Creacion de ficha de carrito
-        orderCard();
-
-        // Agrego dinamicamente un eventListener al boton remove de cada orderCard
-        let removeId = carrito.items[carrito.items.length - 1].id;
-        let removeBtn = document.getElementById(`${removeId}`);
-
-        removeBtn.addEventListener('click', () => {
-            // Elimino el elemento del DOM
-            let removeIndex = carrito.items.findIndex(function ({id}) { //Desestructuracion
-                return id == removeId;
-            });
-            carrito.items.splice(removeIndex, 1);
-            eliminateContainer = document.getElementById(`card${removeId}`);
-            eliminateContainer.remove();
-
-            //Elimino el elemento de memoria
-            let eraseArray = JSON.parse(localStorage.getItem('shirtArray'));
-            let startingPoint = eraseArray.indexOf(removeId) - 4;
-            let endPoint = eraseArray.indexOf('-', eraseArray.indexOf(removeId));
-            eraseArray.splice(startingPoint, endPoint + 1);
-            localStorage.setItem('shirtArray', JSON.stringify(eraseArray));
-
-            // Recargo la pagina
-            location.reload();
-
-        });
-        /**************************************************************************** */
-        array.splice(0, array.indexOf('-') + 1);
-    }
-
-    // Verifico si el carrito esta vacio
-    if (carrito.empty) {
-        let emptyCart = createNode('div');
-        emptyCart.setAttribute('class', 'container-fluid');
-        emptyCart.innerHTML = `
-                            <div class="row justify-content-center" >
-                                <div class="col-auto d-flex flex-column emptyCart align-items-center" >
-                                    <img src="../images/shoppingCart/emptyCart.svg" width="100px" alt="empty cart icon">
-                                    <span class="h5 p-3">Your cart is empty.</span>
-                                </div>
-                            </div>`;
-        appendNode(document.body, emptyCart);
-    }
-
-    // Muestro el total del carrito
-    cartTotal();
-
-} else {
-    console.log('Hay un error en memoria');
-}
 
 /*************************FUNCIONES**************************************/
 function createNode(node) {
@@ -93,45 +21,45 @@ function appendNode(parent, element) {
 }
 
 function extractShirt(printOrder) {
-    let  impresion_primaria, impresion_secundaria;
-    const [color, talla, cantidad, calidad, id] = printOrder;
+    let  primary_print, secundary_print;
+    const [color, size, quantity, quality, id] = printOrder;
    
 
     // Lugar de print principal
     if (printOrder.includes('LC') && !(printOrder.includes('FF') || printOrder.includes('FB'))) {
-        impresion_primaria = 'Badge';
+        primary_print = 'Badge';
     } else if (printOrder.includes('FF') && !(printOrder.includes('LC') || printOrder.includes('FB'))) {
-        impresion_primaria = 'Front';
+        primary_print = 'Front';
     } else if (printOrder.includes('FB') && !(printOrder.includes('LC') || printOrder.includes('FF'))) {
-        impresion_primaria = 'Back';
+        primary_print = 'Back';
     } else if (printOrder.includes('FB') && printOrder.includes('LC') && !printOrder.includes('FF')) {
-        impresion_primaria = 'Both (LC & FB)';
+        primary_print = 'Both (LC & FB)';
     } else if (printOrder.includes('FF') && printOrder.includes('FB') && !printOrder.includes('LC')) {
-        impresion_primaria = 'Both (FF & FB)';
+        primary_print = 'Both (FF & FB)';
     }
 
     //Lugar de print secundario
 
     if (printOrder.includes('RS') && !(printOrder.includes('LS'))) {
-        impresion_secundaria = 'Right';
+        secundary_print = 'Right';
     } else if (printOrder.includes('LS') && !(printOrder.includes('RS'))) {
-        impresion_secundaria = 'Left';
+        secundary_print = 'Left';
     } else if (printOrder.includes('RS') && (printOrder.includes('LS'))) {
-        impresion_secundaria = 'Both arms';
+        secundary_print = 'Both arms';
     } else {
-        impresion_secundaria = 'None';
+        secundary_print = 'None';
     }
 
     // Manejo de objetos
-    // let carrito = new ShoppingCart();
-    const shirt = new Tshirts(color, talla, cantidad, calidad, id, impresion_primaria, impresion_secundaria);
+    // let cart = new ShoppingCart();
+    const shirt = new Tshirts(color, size, quantity, quality, id, primary_print, secundary_print);
     return shirt;
 }
 
 function orderCard() {
     let itemContainer = createNode('div');
     itemContainer.setAttribute('class', 'container-fluid');
-    itemContainer.setAttribute('id', `card${carrito.items[carrito.items.length-1].id}`);
+    itemContainer.setAttribute('id', `card${cart.items[cart.items.length-1].id}`);
     itemContainer.innerHTML = `
                         <div class="row">
                         <!-- imagen de la orden -->
@@ -144,26 +72,26 @@ function orderCard() {
                         <div class="col-auto px-0 py-3 d-flex flex-column justify-content-between">
                             <div class="row">
                                 <div class="col-auto">
-                                    <span class="regular-text">Size: ${carrito.items[carrito.items.length-1].size}</span>
+                                    <span class="regular-text">Size: ${cart.items[cart.items.length-1].size}</span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-auto">
                                     <span class="regular-text">Color: </span>
-                                    <img src="../images/designRoom/${carrito.items[carrito.items.length-1].color}Choice.svg" width="16px" alt="" />
+                                    <img src="../images/designRoom/${cart.items[cart.items.length-1].color}Choice.svg" width="16px" alt="" />
                                 </div>
                                 <div class="col-auto">
-                                    <span class="regular-text">${carrito.items[carrito.items.length-1].printing_quality}</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-auto">
-                                    <span class="regular-text">Prints: ${carrito.items[carrito.items.length-1].printing_primary} & ${carrito.items[carrito.items.length-1].printing_secundary}</span>
+                                    <span class="regular-text">${cart.items[cart.items.length-1].printing_quality}</span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-auto">
-                                    <span class="regular-text">Quantity: ${carrito.items[carrito.items.length-1].quantity}</span>
+                                    <span class="regular-text">Prints: ${cart.items[cart.items.length-1].printing_primary} & ${cart.items[cart.items.length-1].printing_secundary}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <span class="regular-text">Quantity: ${cart.items[cart.items.length-1].quantity}</span>
                                 </div>
                             </div>
 
@@ -179,7 +107,7 @@ function orderCard() {
                             </div>
                             <div class="row justify-content-end">
                                 <div class="col-auto">
-                                    <span class="regular-text">$${carrito.items[carrito.items.length-1].getPrice()}</span>
+                                    <span class="regular-text">$${cart.items[cart.items.length-1].getPrice()}</span>
                                 </div>
                             </div>
 
@@ -192,7 +120,7 @@ function orderCard() {
                         <!-- Remove option -->
                         <div class="row justify-content-end">
                         <div class="col-auto">
-                            <button type="button" class="btn btn-link p-0" id="${carrito.items[carrito.items.length-1].id}">Remove</button>
+                            <button type="button" class="btn btn-link p-0" id="${cart.items[cart.items.length-1].id}">Remove</button>
                         </div>
                         </div>
 
@@ -211,7 +139,7 @@ function cartTotal() {
                                     <h2>Total:</h2>
                                 </div>
                                 <div class="col-auto">
-                                    <h2>$${carrito.getTotal()}</h2>
+                                    <h2>$${cart.getTotal()}</h2>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -257,4 +185,96 @@ function countBreakerInArray(array) {
         newArray.splice(0, newArray.indexOf('-') + 1);
     }
     return count;
+}
+
+function removal(){
+
+    // Agrego dinamicamente un eventListener al boton remove de cada orderCard
+    let removeId = cart.items[cart.items.length - 1].id;
+    let removeBtn = document.getElementById(`${removeId}`);
+
+    removeBtn.addEventListener('click', () => {
+        // Elimino el elemento del DOM
+        let removeIndex = cart.items.findIndex(function ({id}) { //Desestructuracion
+            return id == removeId;
+        });
+        cart.items.splice(removeIndex, 1);
+        eliminateContainer = document.getElementById(`card${removeId}`);
+        eliminateContainer.remove();
+
+        //Elimino el elemento de memoria
+        let eraseArray = JSON.parse(localStorage.getItem('shirtArray'));
+        let startingPoint = eraseArray.indexOf(removeId) - 4;
+        let endPoint = eraseArray.indexOf('-', eraseArray.indexOf(removeId));
+        eraseArray.splice(startingPoint, endPoint + 1);
+        localStorage.setItem('shirtArray', JSON.stringify(eraseArray));
+
+        // Recargo la pagina
+        location.reload();
+
+    });
+}
+
+function isEmpty(){
+
+    if (cart.empty) {
+        let emptyCart = createNode('div');
+        emptyCart.setAttribute('class', 'container-fluid');
+        emptyCart.innerHTML = `
+                            <div class="row justify-content-center" >
+                                <div class="col-auto d-flex flex-column emptyCart align-items-center" >
+                                    <img src="../images/shoppingCart/emptyCart.svg" width="100px" alt="empty cart icon">
+                                    <span class="h5 p-3">Your cart is empty.</span>
+                                </div>
+                            </div>`;
+        appendNode(document.body, emptyCart);
+    }
+}
+
+function showCart(array){
+    if (array.lastIndexOf('-') === (array.length - 1)) {
+
+        titleCard();
+    
+    
+        while (array.length) {
+            let printOrder = [];
+            for (let i = 0; i < array.indexOf('-'); i++) {
+                printOrder.push(array[i]);
+            }
+    
+            // AQUI DIBUJO LA FICHA
+            /**************************************************************************** */
+            // Creacion del objeto Shirt
+            const shirt = extractShirt(printOrder);
+            shirt.setPrice();
+    
+            console.log(`El precio de los articulos es ${shirt.getPrice()}`);
+    
+            cart.addItem(shirt); //'cart' esta definida en index.js
+            cart.setTotal();
+    
+            console.log(`El valor actual del carrito es ${cart.getTotal()}`);
+    
+            // Creacion de ficha de cart
+            orderCard();
+    
+            // Agrego la funcion de eliminar un elemento del carrito
+            removal();
+    
+            /**************************************************************************** */
+            array.splice(0, array.indexOf('-') + 1);
+        }
+    
+        // Verifico si el cart esta vacio
+        isEmpty();
+    
+    
+        // Muestro el total del carrito
+        cartTotal();
+    
+    } else {
+        console.log('Hay un error en memoria');
+    }
+    
 }
