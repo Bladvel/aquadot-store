@@ -1,13 +1,30 @@
-// Accedo a la informacion pasada por la orden del design room
-array = JSON.parse(localStorage.getItem('shirtArray'));
+// Inicializo el array
+let array = [];
 
-// verifico que la informacion se haya pasado correctamente
-for (const iterator of array) {
-    console.log(iterator);
+if(sessionStorage.getItem('shirtArray')){
+    // Accedo a la informacion pasada por la orden del design room
+    array = JSON.parse(sessionStorage.getItem('shirtArray'));
+    console.log(array);
+    //Funcionalidad principal del carrito 
+    showCart(array);
+}else{
+    // Simulo una pedida de datos al servidor
+    fetch('/js/data.json')
+    .then((res) => res.json() )
+    .then( (data) =>{
+        // Guardo el contenido del archivo en memoria
+        sessionStorage.setItem('shirtArray', JSON.stringify(data));
+        //Funcionalidad principal del carrito 
+        showCart(data);
+    })
 }
 
-//Funcionalidad principal del carrito 
-showCart(array);
+// // verifico que la informacion se haya pasado correctamente
+// for (const iterator of array) {
+//     console.log(iterator);
+// }
+
+
 
 
 /*************************FUNCIONES**************************************/
@@ -203,11 +220,11 @@ function removal(){
         eliminateContainer.remove();
 
         //Elimino el elemento de memoria
-        let eraseArray = JSON.parse(localStorage.getItem('shirtArray'));
+        let eraseArray = JSON.parse(sessionStorage.getItem('shirtArray'));
         let startingPoint = eraseArray.indexOf(removeId) - 4;
         let endPoint = eraseArray.indexOf('-', eraseArray.indexOf(removeId));
         eraseArray.splice(startingPoint, endPoint + 1);
-        localStorage.setItem('shirtArray', JSON.stringify(eraseArray));
+        sessionStorage.setItem('shirtArray', JSON.stringify(eraseArray));
 
         // Recargo la pagina
         location.reload();

@@ -72,13 +72,13 @@ form.addEventListener('formdata', (element) =>{
     
     
     // Guardo datos de manera local
-    if(localStorage.getItem('shirtArray')){
+    if(sessionStorage.getItem('shirtArray')){
         // Verifico si existe una orden anterior, si existe, concateno la orden nueva a la memoria
-        let olderOrder = JSON.parse(localStorage.getItem('shirtArray'));
+        let olderOrder = JSON.parse(sessionStorage.getItem('shirtArray'));
         let currentOrder = array.concat(olderOrder);
-        localStorage.setItem('shirtArray', JSON.stringify(currentOrder));
+        sessionStorage.setItem('shirtArray', JSON.stringify(currentOrder));
     }else{
-        localStorage.setItem('shirtArray', JSON.stringify(array));
+        sessionStorage.setItem('shirtArray', JSON.stringify(array));
     }
     
     goToHref("/pages/shoppingCart.html");
